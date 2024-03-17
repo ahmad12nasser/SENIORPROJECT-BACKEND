@@ -1,0 +1,14 @@
+.classpath
+.deployables
+*.pyc
+*.pyo
+*.so
+*/.git/*
+.factorypath
+.git
+.metadata
+.project
+.settings
+bin
+build
+target
