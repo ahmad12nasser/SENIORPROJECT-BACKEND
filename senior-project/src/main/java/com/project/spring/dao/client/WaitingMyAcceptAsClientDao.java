@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.project.spring.model.NeedClientAccept;
 
-public interface WaitingMyAcceptDao {
+public interface WaitingMyAcceptAsClientDao {
 
 	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
 			int client_id);

@@ -26,7 +26,7 @@ public class WaitingAcceptFreelancerDaoImpl
 	public List<HiredPosts> getPendingHiredPostsByClientId(int client_id) {
 		try {
 			log.debug(
-					"Success in fetching the horedPosts by clientId from database");
+					"Success in fetching the hiredPosts by clientId from database");
 			return jdbcTemplate.query(
 					Queries.GET_PENDING_HIRED_POSTS_BY_CIENTID,
 					new Object[]{client_id},

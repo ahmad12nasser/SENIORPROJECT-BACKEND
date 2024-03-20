@@ -29,9 +29,10 @@ public class HiringThroughPostDaoImpl implements HiringThroughPostDao {
 	@Override
 	public int updatePostStatus(long postId, String status) {
 		try {
-			return jdbcTemplate.update(Queries.UPDATE_POST_STATUS, status, postId);
+			return jdbcTemplate.update(Queries.UPDATE_POST_STATUS, status,
+					postId);
 		} catch (Exception e) {
-			log.error("Error in updatePostStatus "+e);
+			log.error("Error in updatePostStatus " + e);
 			return -1;
 		}
 	}

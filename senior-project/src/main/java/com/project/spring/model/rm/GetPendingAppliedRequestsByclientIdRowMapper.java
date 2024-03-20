@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.project.spring.model.NeedClientAccept;
 
-public class getPendingAppliedRequestsByclientIdRowMapper
+public class GetPendingAppliedRequestsByclientIdRowMapper
 		implements
 			RowMapper<NeedClientAccept> {
 	@Override

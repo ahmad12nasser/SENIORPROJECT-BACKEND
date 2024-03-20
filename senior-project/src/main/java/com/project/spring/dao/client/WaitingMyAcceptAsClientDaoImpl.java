@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 
 import com.project.spring.dao.Queries;
 import com.project.spring.model.NeedClientAccept;
-import com.project.spring.model.rm.getPendingAppliedRequestsByclientIdRowMapper;
+import com.project.spring.model.rm.GetPendingAppliedRequestsByclientIdRowMapper;
 
 @Component
-public class WaitingMyAcceptDaoImpl implements WaitingMyAcceptDao {
+public class WaitingMyAcceptAsClientDaoImpl implements WaitingMyAcceptAsClientDao {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private Logger log = LogManager.getLogger(WaitingMyAcceptDaoImpl.class);
+	private Logger log = LogManager.getLogger(WaitingMyAcceptAsClientDaoImpl.class);
 
 	@Override
 	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
@@ -29,7 +29,7 @@ public class WaitingMyAcceptDaoImpl implements WaitingMyAcceptDao {
 			return jdbcTemplate.query(
 					Queries.GET_PENDING_APPLIED_REQUESTS_BY_CLIENTID,
 					new Object[]{client_id},
-					new getPendingAppliedRequestsByclientIdRowMapper());
+					new GetPendingAppliedRequestsByclientIdRowMapper());
 		} catch (Exception e) {
 			log.error(
 					"Error in fetching the Applied Requests that's need the client's Accept from the database"

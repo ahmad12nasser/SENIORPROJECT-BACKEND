@@ -12,21 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.spring.model.HiredPosts;
-import com.project.spring.service.client.WaitingAcceptFreelancerService;
+import com.project.spring.model.NeedClientAccept;
+import com.project.spring.service.client.WaitingMyAcceptAsClientService;
 
 @RestController
 @RequestMapping("client/controlRoom")
-public class getPendingHiredPostsByClientIdContoller {
-	@Autowired
-	private WaitingAcceptFreelancerService waitingAcceptFreelancerService;
+public class GetPendingAppliedRequestsByclientIdController {
 
-	@PostMapping("/getPendingHiredPosts/{client_id}")
+	@Autowired
+	private WaitingMyAcceptAsClientService waitingMyAcceptAsClientService;
+
+	@PostMapping("/getPendingAppliedRequests/{client_id}")
 	@ResponseBody
-	public List<HiredPosts> getPendingHiredPostsByClientId(
+	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
 			@PathVariable int client_id, HttpServletRequest req)
 			throws ParseException {
-		return waitingAcceptFreelancerService
-				.getPendingHiredPostsByClientId(client_id);
+		return waitingMyAcceptAsClientService
+				.getPendingAppliedRequestsByclientId(client_id);
 	}
 }
