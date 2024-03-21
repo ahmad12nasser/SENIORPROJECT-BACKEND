@@ -471,4 +471,36 @@ public class Queries {
 			+ " where                                	\n"
 			+ "         id = ?                       	\n";
 
+	public final static String UPDATE_CLIENT_INFO_BY_ID = " UPDATE										\n"
+			+ "         client                               	\n"
+			+ " SET                                          	\n"
+			+ "         	first_name 		= ? 		,       \n"
+			+ "         	last_name  		= ? 		,       \n"
+			+ "         	user_name  		= ? 		,       \n"
+			+ "         	email      		= ? 		,       \n"
+			+ " 			password      	= ?        	,       \n"
+			+ " 			mobile        	= ?        	,       \n"
+			+ " 			description  	= ?        	,       \n"
+			+ " 			age        		= ?         ,       \n"
+			+ " 			profile_image 	= ?                 \n"
+			+ " WHERE                                        	\n"
+			+ " 			id = ?                 				\n";
+
+	public final static String UPDATE_FREELANCER_INFO_BY_ID = " UPDATE										\n"
+			+ "         freelancer                           	\n"
+			+ " SET                                          	\n"
+			+ "         	first_name 		= ? 		,       \n"
+			+ "         	last_name  		= ? 		,       \n"
+			+ "         	user_name  		= ? 		,       \n"
+			+ "         	email      		= ? 		,       \n"
+			+ " 			password      	= ?        	,       \n"
+			+ " 			mobile        	= ?        	,       \n"
+			+ " 			location        = ?        	,       \n"
+			+ " 			categ_name      = ?        	,       \n"
+			+ " 			description  	= ?        	,       \n"
+			+ " 			age        		= ?         ,       \n"
+			+ " 			profile_image 	= ?                 \n"
+			+ " WHERE                                        	\n"
+			+ " 			id = ?                          	\n";
+
 }
