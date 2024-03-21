@@ -437,4 +437,38 @@ public class Queries {
 			+ " where                		\n"
 			+ "         id = ?       		\n";
 
+	public final static String GET_FREELANCER_INFO_BY_ID = " SELECT 							\n"
+			+ " 		id,             			\n"
+			+ " 		first_name,     			\n"
+			+ " 		last_name,      			\n"
+			+ " 		user_name,      			\n"
+			+ " 		email,          			\n"
+			+ " 		password,       			\n"
+			+ " 		age,            			\n"
+			+ " 		categ_name,     			\n"
+			+ " 		mobile,         			\n"
+			+ " 		location,       			\n"
+			+ " 		profile_image,  			\n"
+			+ " 		description     			\n"
+			+ " FROM                 				\n"
+			+ " 		freelancer      			\n"
+			+ " WHERE                				\n"
+			+ " 		id = ?          			\n";
+
+	public final static String GET_CLIENT_INFO_BY_ID = " SELECT								\n"
+			+ "         id         ,                 	\n"
+			+ "         first_name ,                 	\n"
+			+ "         last_name  ,                 	\n"
+			+ "         user_name  ,                 	\n"
+			+ "         email ,                      	\n"
+			+ " 		password    ,                   \n"
+			+ " 		age         ,                   \n"
+			+ " 		mobile      ,                   \n"
+			+ " 		description ,                   \n"
+			+ " 		profile_image                   \n"
+			+ " FROM                                 	\n"
+			+ "         client                       	\n"
+			+ " where                                	\n"
+			+ "         id = ?                       	\n";
+
 }

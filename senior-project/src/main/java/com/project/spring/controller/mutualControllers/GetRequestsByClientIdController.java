@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.spring.model.Requests;
-import com.project.spring.service.client.GetRequestsByClientIdService;
+import com.project.spring.service.client.myRequests.GetRequestsByClientIdService;
 
 @RestController
 @RequestMapping("/client")

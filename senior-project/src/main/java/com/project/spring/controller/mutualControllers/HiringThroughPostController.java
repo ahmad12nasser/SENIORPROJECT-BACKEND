@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.spring.model.TempHiredPosts;
-import com.project.spring.service.client.HiringThroughPostService;
+import com.project.spring.service.client.hiringThroughPost.HiringThroughPostService;
 
 @RestController
 @RequestMapping("/posts")

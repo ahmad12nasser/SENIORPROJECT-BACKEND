@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.spring.model.NeedClientAccept;
-import com.project.spring.service.client.WaitingMyAcceptAsClientService;
+import com.project.spring.service.client.controlRoom.WaitingMyAcceptAsClientService;
 
 @RestController
 @RequestMapping("client/controlRoom")

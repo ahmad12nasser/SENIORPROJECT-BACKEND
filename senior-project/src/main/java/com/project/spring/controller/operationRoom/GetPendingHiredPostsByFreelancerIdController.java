@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.spring.model.HiredPostsWithFreelancerId;
-import com.project.spring.service.freelancer.WaitingMyAcceptAsFreelancerService;
+import com.project.spring.service.freelancer.operationRoom.WaitingMyAcceptAsFreelancerService;
 
 @RestController
 @RequestMapping("freelancer/operationRoom")

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.spring.dao.utils.GenericResponse;
 import com.project.spring.model.AppliedRequests;
 import com.project.spring.model.Requests;
-import com.project.spring.service.freelancer.ApplyForRequestService;
+import com.project.spring.service.freelancer.applyOnRequest.ApplyForRequestService;
 import com.project.spring.service.requests.NewRequestService;
 import com.project.spring.service.requests.RequestsService;
 

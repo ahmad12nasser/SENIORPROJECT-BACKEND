@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.spring.model.ToDo;
-import com.project.spring.service.freelancer.ToDoService;
+import com.project.spring.service.freelancer.toDo.ToDoService;
 
 @RestController
 @RequestMapping("/freelancer")
