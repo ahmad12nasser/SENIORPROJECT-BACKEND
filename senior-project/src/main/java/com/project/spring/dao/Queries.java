@@ -9,7 +9,7 @@ public class Queries {
 			+ "                 USER_NAME   ,    \n"
 			+ "                 EMAIL       ,    \n"
 			+ "                 PASSWORD    ,    \n"
-			+ "                 PROFILE_IMG ,    \n"
+			+ "                 PROFILE_IMAGE ,  \n"
 			+ "                 MOBILE      ,    \n"
 			+ "                 LOCATION    ,    \n"
 			+ "                 DESCRIPTION      \n"
@@ -49,17 +49,22 @@ public class Queries {
 			+ "         )							\n";
 
 	public final static String GET_CLINET_BY_ID = "SELECT						\n "
-			+ "        ID		             	\n "
+			+ "        ID,		             	\n "
+			+ "        USERROLE 		        \n "
 			+ "FROM                          	\n "
 			+ "        CLIENT                	\n "
 			+ "WHERE                         	\n "
 			+ "        EMAIL    = ?   	 		\n "
 			+ "AND     PASSWORD = ?				\n ";
 
-	public final static String GET_FREELNACER_BY_ID = " SELECT					\n"
-			+ "         ID           	\n" + " FROM                 	\n"
-			+ "         FREELANCER   	\n" + " WHERE                	\n"
-			+ "         EMAIL = ?    	\n" + " AND PASSWORD = ?     	\n";
+	public final static String GET_FREELNACER_BY_ID = " SELECT						\n"
+			+ "         ID,                  \n"
+			+ "         USERROLE             \n"
+			+ " FROM                         \n"
+			+ "         FREELANCER           \n"
+			+ " WHERE                        \n"
+			+ "         EMAIL = ?            \n"
+			+ " AND 	PASSWORD = ?         \n";
 
 	public final static String GET_ALL_REQUESTS = "SELECT						\n"
 			+ "        r.id               		 ,    \n"
