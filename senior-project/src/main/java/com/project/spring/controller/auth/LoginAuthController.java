@@ -32,11 +32,13 @@ public class LoginAuthController {
 
 		Long freelancerId = null;
 		Long clientId = null;
-
+		String roleIsClient = "";
+		String roleIsFreelancer = "";
 		List<LoginResponse> freelancerList = loginAuthService
 				.isFreelancer(freelancer);
 		if (!freelancerList.isEmpty()) {
 			freelancerId = (long) freelancerList.get(0).getUserId();
+			roleIsFreelancer = (String) freelancerList.get(0).getUserRole();
 		} else {
 			Client client = new Client();
 			client.setEmail(email);
@@ -44,13 +46,14 @@ public class LoginAuthController {
 			List<LoginResponse> clientList = loginAuthService.isClient(client);
 			if (!clientList.isEmpty()) {
 				clientId = (long) clientList.get(0).getUserId();
+				roleIsClient = (String) clientList.get(0).getUserRole();
 			}
 		}
 
 		if (freelancerId != null) {
-			return new LoginResponse("freelancer", freelancerId);
+			return new LoginResponse(roleIsFreelancer, freelancerId);
 		} else if (clientId != null) {
-			return new LoginResponse("client", clientId);
+			return new LoginResponse(roleIsClient, clientId);
 		} else {
 			return new LoginResponse("error", -1L);
 		}

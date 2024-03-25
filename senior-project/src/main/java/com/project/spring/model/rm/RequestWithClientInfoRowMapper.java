@@ -4,31 +4,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.lob.DefaultLobHandler;
+import org.springframework.jdbc.support.lob.LobHandler;
 
 import com.project.spring.model.Requests;
 
 public class RequestWithClientInfoRowMapper implements RowMapper<Requests> {
+	private LobHandler lobHandler = new DefaultLobHandler();
 
 	@Override
 	public Requests mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Requests request = new Requests();
+		int i = 0;
 
-		request.setId(rs.getInt("id"));
-		request.setTitle(rs.getString("title"));
-		request.setDatePosted(rs.getDate("dateposted"));
-		request.setDeadline(rs.getDate("deadline"));
-		request.setCateg_name(rs.getString("categ_name"));
-		request.setLocation(rs.getString("location"));
-		request.setDescription(rs.getString("description"));
-		request.setImage(rs.getString("image"));
-		request.setPrice(rs.getBigDecimal("price"));
-		request.setStatus(rs.getString("request_status"));
+		request.setId(rs.getInt(++i));
+		request.setTitle(rs.getString(++i));
+		request.setDatePosted(rs.getDate(++i));
+		request.setDeadline(rs.getDate(++i));
+		request.setCateg_name(rs.getString(++i));
+		request.setLocation(rs.getString(++i));
+		request.setDescription(rs.getString(++i));
+		request.setImage(lobHandler.getBlobAsBinaryStream(rs, ++i).toString());
+		request.setPrice(rs.getBigDecimal(++i));
+		request.setStatus(rs.getString(++i));
 
 		// Map client information
-		request.setClientId(rs.getInt("client_id"));
-		request.setClientFirstName(rs.getString("first_name"));
-		request.setClientLastName(rs.getString("last_name"));
-		request.setClientProfileImage(rs.getString("profile_image"));
+		request.setClientId(rs.getInt(++i));
+		request.setClientFirstName(rs.getString(++i));
+		request.setClientLastName(rs.getString(++i));
+		request.setClientProfileImage(rs.getString(++i));
 
 		return request;
 	}

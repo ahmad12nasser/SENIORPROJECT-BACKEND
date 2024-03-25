@@ -1,9 +1,12 @@
 package com.project.spring.controller.mutualControllers;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.ParseException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,10 +37,19 @@ public class RequestsController {
 
 	@PostMapping("/getAllRequestsWithClientInfo")
 	@ResponseBody
-	public List<Requests> getAllRequests(HttpServletRequest req)
-			throws ParseException {
-		// Assuming the service method to fetch all requests
-		return requestsService.getAllRequestsWithClientInfo();
+	public void getAllRequests(HttpServletRequest req, HttpServletResponse res)
+			throws ParseException, IOException {
+		String fileName = "jihad.png";
+		OutputStream out = res.getOutputStream();
+		res.setContentType("image/png");
+		res.setHeader("Content-disposition",
+				"attachment; filename=" + fileName);
+
+		out.write(requestsService.getAllRequestsWithClientInfo().get(0)
+				.getImage().getBytes());
+		out.close();
+		out.flush();
+		res.flushBuffer();
 	}
 
 	@PostMapping("/applyForRequest")
