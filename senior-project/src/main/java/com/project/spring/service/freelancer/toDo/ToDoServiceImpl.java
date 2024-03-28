@@ -9,11 +9,11 @@ import com.project.spring.dao.freelancer.toDo.ToDoDao;
 import com.project.spring.model.ToDo;
 
 @Component
-public class ToDoServiceImpl implements ToDoService{
-	
+public class ToDoServiceImpl implements ToDoService {
+
 	@Autowired
 	private ToDoDao toDoDao;
-	
+
 	@Override
 	public List<ToDo> getAllToDos(int freelancerId) {
 		return toDoDao.getAllToDos(freelancerId);

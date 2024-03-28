@@ -33,7 +33,8 @@ public class AcceptApplyRequestDaoImpl implements AcceptApplyRequestDao {
 	public int updateAppliedRequestsStatus(String status,
 			int applied_request_id) {
 		try {
-			log.debug("Successfully updating the applied_request's status");
+			log.debug(
+					"Successfully updating the applied_request's status to Accepted");
 			return jdbcTemplate.update(Queries.UPDATE_APPLIED_REQUEST_STATUS,
 					status, applied_request_id);
 		} catch (Exception e) {

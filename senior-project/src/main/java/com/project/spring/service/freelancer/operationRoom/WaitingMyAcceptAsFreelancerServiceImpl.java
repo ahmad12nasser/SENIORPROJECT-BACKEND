@@ -9,7 +9,9 @@ import com.project.spring.dao.freelancer.operationRoom.WaitingMyAcceptAsFreelanc
 import com.project.spring.model.HiredPostsWithFreelancerId;
 
 @Component
-public class WaitingMyAcceptAsFreelancerServiceImpl implements WaitingMyAcceptAsFreelancerService {
+public class WaitingMyAcceptAsFreelancerServiceImpl
+		implements
+			WaitingMyAcceptAsFreelancerService {
 	@Autowired
 	private WaitingMyAcceptAsFreelancerDao waitingMyAcceptAsFreelancerDao;
 

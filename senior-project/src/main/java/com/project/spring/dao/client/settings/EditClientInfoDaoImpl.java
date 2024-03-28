@@ -24,8 +24,7 @@ public class EditClientInfoDaoImpl implements EditClientInfoDao {
 			log.debug("Successfully updating the client info");
 			jdbcTemplate.update(Queries.UPDATE_CLIENT_INFO_BY_ID,
 					client.getFirstName(), client.getLastName(),
-					client.getUsername(), client.getEmail(),
-					client.getPassword(), client.getMobile(),
+					client.getEmail(), client.getPassword(), client.getMobile(),
 					client.getDescription(), client.getAge(),
 					client.getProfileImg(), client.getId());
 			return new GenericResponse(true, "Client Info Edited Successfully",

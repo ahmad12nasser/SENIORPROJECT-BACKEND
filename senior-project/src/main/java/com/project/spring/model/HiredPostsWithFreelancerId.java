@@ -7,7 +7,7 @@ public class HiredPostsWithFreelancerId {
 	private int client_id;
 	private String clientFirstName;
 	private String clientLastName;
-	private String clientProfileImage;
+	private byte[] clientProfileImage;
 	private int id;
 	private String title;
 	private Date dateposted;
@@ -15,7 +15,7 @@ public class HiredPostsWithFreelancerId {
 	private String categ_name;
 	private String location;
 	private String description;
-	private String image;
+	private byte[] image;
 	private BigDecimal price;
 	private String Status;
 	public int getClient_id() {
@@ -36,10 +36,10 @@ public class HiredPostsWithFreelancerId {
 	public void setClientLastName(String clientLastName) {
 		this.clientLastName = clientLastName;
 	}
-	public String getClientProfileImage() {
+	public byte[] getClientProfileImage() {
 		return clientProfileImage;
 	}
-	public void setClientProfileImage(String clientProfileImage) {
+	public void setClientProfileImage(byte[] clientProfileImage) {
 		this.clientProfileImage = clientProfileImage;
 	}
 	public int getId() {
@@ -84,10 +84,10 @@ public class HiredPostsWithFreelancerId {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 	public BigDecimal getPrice() {

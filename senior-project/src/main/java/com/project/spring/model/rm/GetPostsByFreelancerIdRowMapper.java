@@ -2,26 +2,30 @@ package com.project.spring.model.rm;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 
 import org.springframework.jdbc.core.RowMapper;
 
 import com.project.spring.model.Posts;
 
-public class GetPostsByFreelancerIdRowMapper implements RowMapper<Posts>{
+public class GetPostsByFreelancerIdRowMapper implements RowMapper<Posts> {
 
 	@Override
 	public Posts mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 		Posts posts = new Posts();
-		
-		posts.setTitle(rs.getString("title"));
-		posts.setDatePosted(rs.getDate("date_posted"));
-		posts.setDeadline(rs.getDate("deadline"));
-		posts.setCategName(rs.getString("categ_name"));
-		posts.setLocation("location");
-		posts.setDescription("description");
-		posts.setImage(rs.getString("image"));
-		posts.setPrice(rs.getBigDecimal("price"));
+		int i = 0;
+		posts.setId(rs.getInt(++i));
+		posts.setFreelancerId(rs.getInt(++i));
+		posts.setTitle(rs.getString(++i));
+		posts.setDatePosted(rs.getDate(++i));
+		posts.setDeadline(rs.getDate(++i));
+		posts.setLocation(rs.getString(++i));
+		posts.setCategName(rs.getString(++i));
+		posts.setDescription(rs.getString(++i));
+		posts.setImage(Base64.getEncoder().encode(rs.getBytes(++i)));
+		posts.setPrice(rs.getBigDecimal(++i));
+		posts.setStatus(rs.getString(++i));
 		return posts;
 	}
 }

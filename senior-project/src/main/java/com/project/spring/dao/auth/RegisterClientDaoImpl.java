@@ -19,11 +19,13 @@ public class RegisterClientDaoImpl implements RegisterClientDao {
 	@Override
 	public int registerClient(Client client) {
 		try {
-			int counter = jdbcTemplate.queryForObject(Queries.INSERT_INTO_CLIENT,
-					new Object [] { client.getFirstName(), client.getLastName(),
-					client.getUsername(), client.getEmail(),
-					client.getPassword(), client.getProfileImg(),
-					client.getMobile(), client.getAge()},
+			int counter = jdbcTemplate.queryForObject(
+					Queries.INSERT_INTO_CLIENT,
+					new Object[]{client.getFirstName(), client.getLastName(),
+							client.getEmail(), client.getPassword(),
+							client.getProfileImg(), client.getAge(),
+							client.getLocation(), client.getDescription(),
+							client.getMobile()},
 
 					Integer.class);
 			return counter++;

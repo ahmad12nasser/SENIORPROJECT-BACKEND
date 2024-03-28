@@ -11,16 +11,26 @@ public class Client {
 	private String username;
 
 	private String email;
-	
+
 	private String password;
 
-	private String profileImg;
+	private byte[] profileImg;
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 	private String mobile;
 
 	private String description;
-	
-	private int age ;
+
+	private String location;
+
+	private int age;
 
 	public long getId() {
 		return id;
@@ -64,11 +74,11 @@ public class Client {
 		this.password = password;
 	}
 
-	public String getProfileImg() {
+	public byte[] getProfileImg() {
 		return profileImg;
 	}
 
-	public void setProfileImg(String profileImg) {
+	public void setProfileImg(byte[] profileImg) {
 		this.profileImg = profileImg;
 	}
 

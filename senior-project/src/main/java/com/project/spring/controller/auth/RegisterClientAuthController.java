@@ -1,5 +1,7 @@
 package com.project.spring.controller.auth;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.spring.model.Client;
 import com.project.spring.service.auth.RegisterClientService;
@@ -19,28 +22,30 @@ public class RegisterClientAuthController {
 
 	@RequestMapping(value = "/register/client", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelMap clientLogin(
-			@RequestParam("first_name") String first_name,
+	public ModelMap clientLogin(@RequestParam("first_name") String first_name,
 			@RequestParam("last_name") String last_name,
-			@RequestParam("user_name") String user_name,
-			@RequestParam("client_email") String email,
+			@RequestParam("email") String email,
 			@RequestParam("password") String password,
 			@RequestParam("confirmPassword") String confirmPassword,
-			@RequestParam("client_img") String profile_image,
-			@RequestParam("phone_number") String mobile,
-			@RequestParam("age") int age,
-			@RequestParam("description") String description) {
+			@RequestParam("profile_image") MultipartFile profile_image,
+			@RequestParam("mobile") String mobile, @RequestParam("age") int age,
+			@RequestParam("location") String location,
+			@RequestParam("description") String description)
+			throws IOException {
 		ModelMap model = new ModelMap();
 		int counter = 0;
 
 		if (password.equals(confirmPassword)) {
 			Client client = new Client();
+			if (profile_image != null && !profile_image.isEmpty()) {
+				client.setProfileImg(profile_image.getBytes());
+			}
 			client.setFirstName(first_name);
 			client.setLastName(last_name);
 			client.setEmail(email);
-			client.setUsername(user_name);
 			client.setPassword(password);
 			client.setMobile(mobile);
+			client.setLocation(location);
 			client.setDescription(description);
 			client.setAge(age);
 
@@ -50,10 +55,10 @@ public class RegisterClientAuthController {
 			} else {
 				model.addAttribute("msg", "Incorrect Registration");
 			}
-		}else {
-			model.addAttribute("msg", "Password and confirm password do not match.");
+		} else {
+			model.addAttribute("msg",
+					"Password and confirm password do not match.");
 		}
-		
 
 		return model;
 	}

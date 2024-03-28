@@ -13,11 +13,14 @@ import com.project.spring.model.Posts;
 import com.project.spring.model.rm.GetPostsByFreelancerIdRowMapper;
 
 @Component
-public class GetPostsByFreelancerIdDaoImpl implements GetPostsByFreelancerIdDao {
+public class GetPostsByFreelancerIdDaoImpl
+		implements
+			GetPostsByFreelancerIdDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private Logger log = LogManager.getLogger(GetPostsByFreelancerIdDaoImpl.class);
+	private Logger log = LogManager
+			.getLogger(GetPostsByFreelancerIdDaoImpl.class);
 
 	@Override
 	public List<Posts> getPostsByFreelancerId(int freelancerId) {

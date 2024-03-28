@@ -13,12 +13,15 @@ import com.project.spring.model.NeedClientAccept;
 import com.project.spring.model.rm.GetPendingAppliedRequestsByclientIdRowMapper;
 
 @Component
-public class WaitingMyAcceptAsClientDaoImpl implements WaitingMyAcceptAsClientDao {
+public class WaitingMyAcceptAsClientDaoImpl
+		implements
+			WaitingMyAcceptAsClientDao {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private Logger log = LogManager.getLogger(WaitingMyAcceptAsClientDaoImpl.class);
+	private Logger log = LogManager
+			.getLogger(WaitingMyAcceptAsClientDaoImpl.class);
 
 	@Override
 	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(

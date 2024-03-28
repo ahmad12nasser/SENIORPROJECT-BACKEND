@@ -13,7 +13,9 @@ import com.project.spring.model.HiredPostsWithFreelancerId;
 import com.project.spring.model.rm.GetPendingHiredPostsByFreelancerIdRowMapper;
 
 @Component
-public class WaitingMyAcceptAsFreelancerDaoImpl implements WaitingMyAcceptAsFreelancerDao {
+public class WaitingMyAcceptAsFreelancerDaoImpl
+		implements
+			WaitingMyAcceptAsFreelancerDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 

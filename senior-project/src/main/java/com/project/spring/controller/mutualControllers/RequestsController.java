@@ -1,7 +1,8 @@
 package com.project.spring.controller.mutualControllers;
 
 import java.io.IOException;
-import java.io.OutputStream;
+import java.math.BigDecimal;
+import java.sql.Date;
 import java.text.ParseException;
 import java.util.List;
 
@@ -14,8 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.spring.dao.utils.GenericResponse;
 import com.project.spring.model.AppliedRequests;
@@ -37,19 +40,9 @@ public class RequestsController {
 
 	@PostMapping("/getAllRequestsWithClientInfo")
 	@ResponseBody
-	public void getAllRequests(HttpServletRequest req, HttpServletResponse res)
-			throws ParseException, IOException {
-		String fileName = "jihad.png";
-		OutputStream out = res.getOutputStream();
-		res.setContentType("image/png");
-		res.setHeader("Content-disposition",
-				"attachment; filename=" + fileName);
-
-		out.write(requestsService.getAllRequestsWithClientInfo().get(0)
-				.getImage().getBytes());
-		out.close();
-		out.flush();
-		res.flushBuffer();
+	public List<Requests> getAllRequests(HttpServletRequest req,
+			HttpServletResponse res) throws ParseException, IOException {
+		return requestsService.getAllRequestsWithClientInfo();
 	}
 
 	@PostMapping("/applyForRequest")
@@ -68,7 +61,32 @@ public class RequestsController {
 
 	@PostMapping("/createRequest")
 	@ResponseBody
-	public GenericResponse createRequest(@RequestBody Requests requests) {
-		return newRequestService.createRequest(requests);
+	public ResponseEntity<GenericResponse> createRequest(
+			@RequestParam("client_id") int client_id,
+			@RequestParam("image") MultipartFile imageFile,
+			@RequestParam("title") String title,
+			@RequestParam("description") String description,
+			@RequestParam("categ_name") String categ_name,
+			@RequestParam("location") String location,
+			@RequestParam("datePosted") Date datePosted,
+			@RequestParam("deadline") Date deadline,
+			@RequestParam("price") BigDecimal price) throws IOException {
+
+		Requests requests = new Requests();
+		if (imageFile != null && !imageFile.isEmpty()) {
+			requests.setImage(imageFile.getBytes());
+		}
+		requests.setCateg_name(categ_name);
+		requests.setClientId(client_id);
+		requests.setTitle(title);
+		requests.setDatePosted(datePosted);
+		requests.setDeadline(deadline);
+		requests.setDescription(description);
+		requests.setPrice(price);
+		requests.setLocation(location);
+		return new ResponseEntity<>(newRequestService.createRequest(requests),
+				HttpStatus.CREATED);
+
 	}
+
 }

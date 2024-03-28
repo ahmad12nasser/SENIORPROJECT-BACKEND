@@ -12,7 +12,7 @@ public class ToDo {
 	private String status;
 	private String client_first_name;
 	private String client_last_name;
-	private String client_profileImage;
+	private byte[] client_profileImage;
 	private String request_title;
 	private String request_description;
 	private String request_deadLine;
@@ -72,10 +72,10 @@ public class ToDo {
 	public void setClient_last_name(String client_last_name) {
 		this.client_last_name = client_last_name;
 	}
-	public String getClient_profileImage() {
+	public byte[] getClient_profileImage() {
 		return client_profileImage;
 	}
-	public void setClient_profileImage(String client_profileImage) {
+	public void setClient_profileImage(byte[] client_profileImage) {
 		this.client_profileImage = client_profileImage;
 	}
 	public String getRequest_title() {

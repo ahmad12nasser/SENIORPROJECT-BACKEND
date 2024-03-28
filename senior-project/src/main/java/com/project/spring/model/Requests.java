@@ -12,13 +12,13 @@ public class Requests {
 	private Date deadline;
 	private String location;
 	private String title;
-	private String image;
+	private byte[] image;
 	private BigDecimal price;
 	private String status;
 	private int clientId;
 	private String clientFirstName;
 	private String clientLastName;
-	private String clientProfileImage;
+	private byte[] clientProfileImage;
 
 	public int getClientId() {
 		return clientId;
@@ -38,10 +38,10 @@ public class Requests {
 	public void setClientLastName(String clientLastName) {
 		this.clientLastName = clientLastName;
 	}
-	public String getClientProfileImage() {
+	public byte[] getClientProfileImage() {
 		return clientProfileImage;
 	}
-	public void setClientProfileImage(String clientProfileImage) {
+	public void setClientProfileImage(byte[] clientProfileImage) {
 		this.clientProfileImage = clientProfileImage;
 	}
 	public int getId() {
@@ -86,10 +86,10 @@ public class Requests {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 	public BigDecimal getPrice() {

@@ -8,7 +8,7 @@ public class Freelancer {
 	private String username;
 	private String email;
 	private String password;
-	private String profileImg;
+	private byte[] profileImg;
 	private String mobile;
 	private String location;
 	private String Description;
@@ -54,7 +54,7 @@ public class Freelancer {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -62,8 +62,6 @@ public class Freelancer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 
 	public String getPassword() {
 		return password;
@@ -73,11 +71,11 @@ public class Freelancer {
 		this.password = password;
 	}
 
-	public String getProfileImg() {
+	public byte[] getProfileImg() {
 		return profileImg;
 	}
 
-	public void setProfileImg(String profileImg) {
+	public void setProfileImg(byte[] profileImg) {
 		this.profileImg = profileImg;
 	}
 

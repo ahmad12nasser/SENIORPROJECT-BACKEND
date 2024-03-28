@@ -24,9 +24,8 @@ public class EditFreelancerInfoDaoImpl implements EditFreelancerInfoDao {
 			log.debug("Successfully updating the freelancer info");
 			jdbcTemplate.update(Queries.UPDATE_FREELANCER_INFO_BY_ID,
 					freelancer.getFirstName(), freelancer.getLastName(),
-					freelancer.getUsername(), freelancer.getEmail(),
-					freelancer.getPassword(), freelancer.getMobile(),
-					freelancer.getLocation(),
+					freelancer.getEmail(), freelancer.getPassword(),
+					freelancer.getMobile(), freelancer.getLocation(),
 					freelancer.getProfessionCategName(),
 					freelancer.getDescription(), freelancer.getAge(),
 					freelancer.getProfileImg(), freelancer.getId());

@@ -9,7 +9,9 @@ import com.project.spring.dao.client.controlRoom.WaitingMyAcceptAsClientDao;
 import com.project.spring.model.NeedClientAccept;
 
 @Component
-public class WaitingMyAcceptAsClientServiceImpl implements WaitingMyAcceptAsClientService {
+public class WaitingMyAcceptAsClientServiceImpl
+		implements
+			WaitingMyAcceptAsClientService {
 
 	@Autowired
 	private WaitingMyAcceptAsClientDao waitingMyAcceptAsClientDao;

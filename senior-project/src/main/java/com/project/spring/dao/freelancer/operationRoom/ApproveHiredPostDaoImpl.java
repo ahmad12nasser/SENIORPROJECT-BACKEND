@@ -20,7 +20,7 @@ public class ApproveHiredPostDaoImpl implements ApproveHiredPostDao {
 	public int insertIntoToDo(String status, int hired_post_id) {
 		try {
 			log.debug(
-					"Successfully adding the hired post into toDo table in the database");
+					"Successfully adding the hired post into toDo table in the database with status onDoing");
 			return jdbcTemplate.update(Queries.INSERT_HIRED_POSTS_INTO_TODO,
 					status, hired_post_id);
 		} catch (Exception e) {
@@ -31,7 +31,8 @@ public class ApproveHiredPostDaoImpl implements ApproveHiredPostDao {
 	@Override
 	public int updateHiredPostStatus(String status, int hired_post_id) {
 		try {
-			log.debug("Successfully updating the hired_post's status");
+			log.debug(
+					"Successfully updating the hired_post's status to Accepted");
 			return jdbcTemplate.update(Queries.UPDATE_HIRED_POST_STATUS, status,
 					hired_post_id);
 		} catch (Exception e) {

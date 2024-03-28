@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.project.spring.dao.requests.RequestsDao;
 import com.project.spring.model.Requests;
 @Component
-public class RequestsServiceImpl implements RequestsService{
+public class RequestsServiceImpl implements RequestsService {
 
 	@Autowired
 	private RequestsDao RequestsDao;

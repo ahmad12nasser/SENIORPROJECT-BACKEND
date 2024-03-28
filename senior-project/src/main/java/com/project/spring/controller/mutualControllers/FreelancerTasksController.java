@@ -26,6 +26,6 @@ public class FreelancerTasksController {
 	public ResponseEntity<List<ToDo>> getAllToDos(
 			@PathVariable int freelancerId) throws ParseException {
 		List<ToDo> todos = toDoService.getAllToDos(freelancerId);
-		return ResponseEntity.ok(todos); 
+		return ResponseEntity.ok(todos);
 	}
 }

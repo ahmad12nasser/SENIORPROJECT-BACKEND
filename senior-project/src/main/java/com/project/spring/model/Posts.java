@@ -11,13 +11,13 @@ public class Posts {
 	private String location;
 	private String categName;
 	private String description;
-	private String image;
+	private byte[] image;
 	private BigDecimal price;
 	private String status;
 	private int freelancerId;
 	private String freelancerFirstName;
 	private String freelancerLastName;
-	private String freelancerProfileImge;
+	private byte[] freelancerProfileImge;
 
 	public String getStatus() {
 		return status;
@@ -67,10 +67,10 @@ public class Posts {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 	public BigDecimal getPrice() {
@@ -97,10 +97,10 @@ public class Posts {
 	public void setFreelancerLastName(String freelancerLastName) {
 		this.freelancerLastName = freelancerLastName;
 	}
-	public String getFreelancerProfileImge() {
+	public byte[] getFreelancerProfileImge() {
 		return freelancerProfileImge;
 	}
-	public void setFreelancerProfileImge(String freelancerProfileImge) {
+	public void setFreelancerProfileImge(byte[] freelancerProfileImge) {
 		this.freelancerProfileImge = freelancerProfileImge;
 	}
 }

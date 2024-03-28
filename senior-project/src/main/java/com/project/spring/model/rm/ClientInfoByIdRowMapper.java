@@ -2,6 +2,7 @@ package com.project.spring.model.rm;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -11,16 +12,19 @@ public class ClientInfoByIdRowMapper implements RowMapper<Client> {
 	@Override
 	public Client mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Client c = new Client();
-		c.setId(rs.getInt("id"));
-		c.setFirstName(rs.getString("first_name"));
-		c.setLastName(rs.getString("last_name"));
-		c.setUsername(rs.getString("user_name"));
-		c.setEmail(rs.getString("email"));
-		c.setPassword(rs.getString("password"));
-		c.setMobile(rs.getString("mobile"));
-		c.setAge(rs.getInt("age"));
-		c.setDescription(rs.getString("description"));
-		c.setProfileImg(rs.getString("profile_image"));
+
+		int i = 0;
+
+		c.setId(rs.getInt(++i));
+		c.setFirstName(rs.getString(++i));
+		c.setLastName(rs.getString(++i));
+		c.setEmail(rs.getString(++i));
+		c.setPassword(rs.getString(++i));
+		c.setMobile(rs.getString(++i));
+		c.setAge(rs.getInt(++i));
+		c.setDescription(rs.getString(++i));
+		c.setLocation(rs.getString(++i));
+		c.setProfileImg(Base64.getEncoder().encode(rs.getBytes(++i)));
 
 		return c;
 	}

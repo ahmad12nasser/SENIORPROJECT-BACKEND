@@ -2,6 +2,7 @@ package com.project.spring.model.rm;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -16,20 +17,23 @@ public class GetPendingAppliedRequestsByFreelancerIdRowMapper
 			throws SQLException {
 		NeedClientAccept h = new NeedClientAccept();
 
-		h.setId(rs.getInt("id"));
-		h.setTitle(rs.getString("title"));
-		h.setDateposted(rs.getDate("dateposted"));
-		h.setDeadline(rs.getDate("deadline"));
-		h.setLocation(rs.getString("location"));
-		h.setCateg_name(rs.getString("categ_name"));
-		h.setDescription(rs.getString("description"));
-		h.setImage(rs.getString("image"));
-		h.setPrice(rs.getBigDecimal("price"));
-		h.setStatus(rs.getString("status"));
-		h.setFreelancer_id(rs.getInt("client_id"));
-		h.setFreelancerFirstName(rs.getString("clientFirstName"));
-		h.setFreelancerLastName(rs.getString("clientLastName"));
-		h.setFreelancerProfileImage(rs.getString("clientProfileImage"));
+		int i = 0;
+
+		h.setId(rs.getInt(++i));
+		h.setTitle(rs.getString(++i));
+		h.setDateposted(rs.getDate(++i));
+		h.setDeadline(rs.getDate(++i));
+		h.setLocation(rs.getString(++i));
+		h.setCateg_name(rs.getString(++i));
+		h.setDescription(rs.getString(++i));
+		h.setImage(Base64.getEncoder().encode(rs.getBytes(++i)));
+		h.setPrice(rs.getBigDecimal(++i));
+		h.setStatus(rs.getString(++i));
+		h.setFreelancer_id(rs.getInt(++i));
+		h.setFreelancerFirstName(rs.getString(++i));
+		h.setFreelancerLastName(rs.getString(++i));
+		h.setFreelancerProfileImage(
+				Base64.getEncoder().encode(rs.getBytes(++i)));
 
 		return h;
 	}

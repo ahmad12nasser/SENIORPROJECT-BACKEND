@@ -20,7 +20,8 @@ public class RejectApplyRequestDaoImpl implements RejectApplyRequestDao {
 	@Override
 	public int rejectApplyRequest(String status, int applied_request_id) {
 		try {
-			log.debug("Successfully reject the apply request");
+			log.debug(
+					"Successfully reject the apply request with changing the status to Rejected");
 			return jdbcTemplate.update(Queries.UPDATE_APPLIED_REQUEST_STATUS,
 					status, applied_request_id);
 		} catch (Exception e) {

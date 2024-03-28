@@ -19,6 +19,8 @@ public class HiringThroughPostDaoImpl implements HiringThroughPostDao {
 	@Override
 	public int insertHiredPost(long clientId, String status, long postId) {
 		try {
+			log.debug(
+					"successfully with inserting post into hired_post with clientInfo");
 			return jdbcTemplate.update(Queries.INSERT_HIRED_POSTS, clientId,
 					status, postId);
 		} catch (Exception e) {
@@ -29,6 +31,7 @@ public class HiringThroughPostDaoImpl implements HiringThroughPostDao {
 	@Override
 	public int updatePostStatus(long postId, String status) {
 		try {
+			log.debug("Successfully with updating the post status to hired ");
 			return jdbcTemplate.update(Queries.UPDATE_POST_STATUS, status,
 					postId);
 		} catch (Exception e) {

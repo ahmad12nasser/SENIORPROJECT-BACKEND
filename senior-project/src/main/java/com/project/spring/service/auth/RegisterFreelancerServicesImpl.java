@@ -7,7 +7,9 @@ import com.project.spring.dao.auth.RegisterFreelancerDao;
 import com.project.spring.model.Freelancer;
 
 @Component
-public class RegisterFreelancerServicesImpl implements RegisterFreelancerService {
+public class RegisterFreelancerServicesImpl
+		implements
+			RegisterFreelancerService {
 
 	@Autowired
 	private RegisterFreelancerDao freelancerDao;
