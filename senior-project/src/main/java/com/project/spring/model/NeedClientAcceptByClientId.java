@@ -3,7 +3,7 @@ package com.project.spring.model;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class NeedClientAccept {
+public class NeedClientAcceptByClientId {
 	private int id;
 	private String title;
 	private Date dateposted;
@@ -14,10 +14,8 @@ public class NeedClientAccept {
 	private byte[] image;
 	private BigDecimal price;
 	private String status;
-	private int client_id;
-	private String clientFirstName;
-	private String clientLastName;
-	private byte[] clientProfileImage;
+	private int freelancer_id;
+	private String freelancerFirstName;
 	public int getId() {
 		return id;
 	}
@@ -78,29 +76,30 @@ public class NeedClientAccept {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getClient_id() {
-		return client_id;
+	public int getFreelancer_id() {
+		return freelancer_id;
 	}
-	public void setClient_id(int client_id) {
-		this.client_id = client_id;
+	public void setFreelancer_id(int freelancer_id) {
+		this.freelancer_id = freelancer_id;
 	}
-	public String getClientFirstName() {
-		return clientFirstName;
+	public String getFreelancerFirstName() {
+		return freelancerFirstName;
 	}
-	public void setClientFirstName(String clientFirstName) {
-		this.clientFirstName = clientFirstName;
+	public void setFreelancerFirstName(String freelancerFirstName) {
+		this.freelancerFirstName = freelancerFirstName;
 	}
-	public String getClientLastName() {
-		return clientLastName;
+	public String getFreelancerLastName() {
+		return freelancerLastName;
 	}
-	public void setClientLastName(String clientLastName) {
-		this.clientLastName = clientLastName;
+	public void setFreelancerLastName(String freelancerLastName) {
+		this.freelancerLastName = freelancerLastName;
 	}
-	public byte[] getClientProfileImage() {
-		return clientProfileImage;
+	public byte[] getFreelancerProfileImage() {
+		return freelancerProfileImage;
 	}
-	public void setClientProfileImage(byte[] clientProfileImage) {
-		this.clientProfileImage = clientProfileImage;
+	public void setFreelancerProfileImage(byte[] freelancerProfileImage) {
+		this.freelancerProfileImage = freelancerProfileImage;
 	}
-
+	private String freelancerLastName;
+	private byte[] freelancerProfileImage;
 }

@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.project.spring.model.NeedClientAccept;
+import com.project.spring.model.NeedClientAcceptByClientId;
 
 @Service
 public interface WaitingMyAcceptAsClientService {
 
-	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
+	public List<NeedClientAcceptByClientId> getPendingAppliedRequestsByclientId(
 			int client_id);
 }

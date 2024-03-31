@@ -8,8 +8,6 @@ public class Client {
 
 	private String lastName;
 
-	private String username;
-
 	private String email;
 
 	private String password;
@@ -52,13 +50,6 @@ public class Client {
 		this.lastName = lastName;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	public String getEmail() {
 		return email;
 	}

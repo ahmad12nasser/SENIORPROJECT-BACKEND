@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.spring.model.NeedClientAccept;
+import com.project.spring.model.NeedClientAcceptByClientId;
 import com.project.spring.service.client.controlRoom.WaitingMyAcceptAsClientService;
 
 @RestController
@@ -24,7 +24,7 @@ public class GetPendingAppliedRequestsByclientIdController {
 
 	@PostMapping("/getPendingAppliedRequests/{client_id}")
 	@ResponseBody
-	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
+	public List<NeedClientAcceptByClientId> getPendingAppliedRequestsByclientId(
 			@PathVariable int client_id, HttpServletRequest req)
 			throws ParseException {
 		return waitingMyAcceptAsClientService

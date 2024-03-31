@@ -40,6 +40,7 @@ public class NewPostDaoImpl implements NewPostDao {
 							ps.setString(++i, posts.getCategName());
 							ps.setString(++i, posts.getDescription());
 							ps.setBytes(++i, posts.getImage());
+							ps.setBigDecimal(++i, posts.getPrice());
 						}
 					});
 			log.debug(

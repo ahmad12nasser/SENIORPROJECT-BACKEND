@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.project.spring.dao.client.controlRoom.WaitingMyAcceptAsClientDao;
-import com.project.spring.model.NeedClientAccept;
+import com.project.spring.model.NeedClientAcceptByClientId;
 
 @Component
 public class WaitingMyAcceptAsClientServiceImpl
@@ -17,7 +17,7 @@ public class WaitingMyAcceptAsClientServiceImpl
 	private WaitingMyAcceptAsClientDao waitingMyAcceptAsClientDao;
 
 	@Override
-	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
+	public List<NeedClientAcceptByClientId> getPendingAppliedRequestsByclientId(
 			int client_id) {
 		return waitingMyAcceptAsClientDao
 				.getPendingAppliedRequestsByclientId(client_id);

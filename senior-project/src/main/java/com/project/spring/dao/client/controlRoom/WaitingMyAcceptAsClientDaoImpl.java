@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.project.spring.dao.Queries;
-import com.project.spring.model.NeedClientAccept;
+import com.project.spring.model.NeedClientAcceptByClientId;
 import com.project.spring.model.rm.GetPendingAppliedRequestsByclientIdRowMapper;
 
 @Component
@@ -24,7 +24,7 @@ public class WaitingMyAcceptAsClientDaoImpl
 			.getLogger(WaitingMyAcceptAsClientDaoImpl.class);
 
 	@Override
-	public List<NeedClientAccept> getPendingAppliedRequestsByclientId(
+	public List<NeedClientAcceptByClientId> getPendingAppliedRequestsByclientId(
 			int client_id) {
 		try {
 			log.debug(

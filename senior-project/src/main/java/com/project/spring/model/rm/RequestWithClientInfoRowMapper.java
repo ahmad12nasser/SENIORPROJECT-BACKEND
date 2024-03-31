@@ -2,13 +2,15 @@ package com.project.spring.model.rm;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Base64;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.lob.DefaultLobHandler;
+import org.springframework.jdbc.support.lob.LobHandler;
 
 import com.project.spring.model.Requests;
 
 public class RequestWithClientInfoRowMapper implements RowMapper<Requests> {
+	private LobHandler lobHandler = new DefaultLobHandler();
 
 	@Override
 	public Requests mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -22,15 +24,14 @@ public class RequestWithClientInfoRowMapper implements RowMapper<Requests> {
 		request.setCateg_name(rs.getString(++i));
 		request.setLocation(rs.getString(++i));
 		request.setDescription(rs.getString(++i));
-		request.setImage(Base64.getEncoder().encode(rs.getBytes(++i)));
+		request.setImage(lobHandler.getBlobAsBytes(rs, ++i));
 		request.setPrice(rs.getBigDecimal(++i));
 		request.setStatus(rs.getString(++i));
 		// Map client information
 		request.setClientId(rs.getInt(++i));
 		request.setClientFirstName(rs.getString(++i));
 		request.setClientLastName(rs.getString(++i));
-		request.setClientProfileImage(
-				Base64.getEncoder().encode(rs.getBytes(++i)));
+		request.setClientProfileImage(lobHandler.getBlobAsBytes(rs, ++i));
 
 		return request;
 	}
