@@ -33,6 +33,7 @@ public class GetPendingAppliedRequestsByclientIdRowMapper
 		m.setFreelancerFirstName(rs.getString(++i));
 		m.setFreelancerLastName(rs.getString(++i));
 		m.setFreelancerProfileImage(lobHandler.getBlobAsBytes(rs, ++i));
+		m.setFreelancerMobile(rs.getString(++i));
 
 		return m;
 	}

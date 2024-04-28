@@ -19,6 +19,7 @@ public class Requests {
 	private String clientFirstName;
 	private String clientLastName;
 	private byte[] clientProfileImage;
+	private String clientMobile;
 
 	public int getClientId() {
 		return clientId;
@@ -103,6 +104,12 @@ public class Requests {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getClientMobile() {
+		return clientMobile;
+	}
+	public void setClientMobile(String clientMobile) {
+		this.clientMobile = clientMobile;
 	}
 
 }

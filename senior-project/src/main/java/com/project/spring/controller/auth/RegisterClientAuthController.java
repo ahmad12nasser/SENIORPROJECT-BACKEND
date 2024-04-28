@@ -22,8 +22,8 @@ public class RegisterClientAuthController {
 
 	@RequestMapping(value = "/register/client", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelMap clientLogin(@RequestParam("first_name") String first_name,
-			@RequestParam("last_name") String last_name,
+	public ModelMap clientLogin(@RequestParam("firstName") String first_name,
+			@RequestParam("lastName") String last_name,
 			@RequestParam("email") String email,
 			@RequestParam("password") String password,
 			@RequestParam("confirmPassword") String confirmPassword,

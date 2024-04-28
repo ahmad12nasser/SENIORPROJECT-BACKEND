@@ -27,14 +27,10 @@ public class EditClientInfoController {
 			@RequestParam("lastName") String lastName,
 			@RequestParam("email") String email,
 			@RequestParam("mobile") String mobile,
-			@RequestParam("image") MultipartFile profileImage,
 			@RequestParam("location") String location,
 			@RequestParam("description") String description,
 			@RequestParam("age") int age) throws IOException {
 		Client client = new Client();
-		if (profileImage != null && !profileImage.isEmpty()) {
-			client.setProfileImg(profileImage.getBytes());
-		}
 		client.setAge(age);
 		client.setId(client_id);
 		client.setFirstName(firstName);
@@ -45,4 +41,18 @@ public class EditClientInfoController {
 		client.setDescription(description);
 		return editClientInfoService.editClientInfoById(client);
 	}
+
+	@PostMapping("/changeProfileImage")
+	@ResponseBody
+	public GenericResponse changeProfileImage(
+			@RequestParam("changedImage") MultipartFile changedImage,
+			@RequestParam("client_id") int client_id) throws IOException {
+		Client client = new Client();
+		if (changedImage != null && !changedImage.isEmpty()) {
+			client.setProfileImg(changedImage.getBytes());
+		}
+		client.setId(client_id);
+		return editClientInfoService.changeProfileImage(client);
+	}
+
 }

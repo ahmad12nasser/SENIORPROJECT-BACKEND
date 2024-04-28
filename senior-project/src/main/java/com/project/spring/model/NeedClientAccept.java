@@ -6,18 +6,20 @@ import java.sql.Date;
 public class NeedClientAccept {
 	private int id;
 	private String title;
-	private Date dateposted;
 	private Date deadline;
+	private Date datePosted;
 	private String location;
 	private String categ_name;
 	private String description;
 	private byte[] image;
 	private BigDecimal price;
 	private String status;
+	private int request_id;
 	private int client_id;
 	private String clientFirstName;
 	private String clientLastName;
 	private byte[] clientProfileImage;
+	private String clientMobile;
 	public int getId() {
 		return id;
 	}
@@ -30,12 +32,7 @@ public class NeedClientAccept {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getDateposted() {
-		return dateposted;
-	}
-	public void setDateposted(Date dateposted) {
-		this.dateposted = dateposted;
-	}
+
 	public Date getDeadline() {
 		return deadline;
 	}
@@ -101,6 +98,24 @@ public class NeedClientAccept {
 	}
 	public void setClientProfileImage(byte[] clientProfileImage) {
 		this.clientProfileImage = clientProfileImage;
+	}
+	public Date getDatePosted() {
+		return datePosted;
+	}
+	public void setDatePosted(Date datePosted) {
+		this.datePosted = datePosted;
+	}
+	public int getRequest_id() {
+		return request_id;
+	}
+	public void setRequest_id(int request_id) {
+		this.request_id = request_id;
+	}
+	public String getClientMobile() {
+		return clientMobile;
+	}
+	public void setClientMobile(String clientMobile) {
+		this.clientMobile = clientMobile;
 	}
 
 }

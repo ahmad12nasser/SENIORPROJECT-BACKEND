@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import com.project.spring.dao.utils.GenericResponse;
 import com.project.spring.model.AppliedRequests;
 import com.project.spring.model.Requests;
 import com.project.spring.service.freelancer.applyOnRequest.ApplyForRequestService;
+import com.project.spring.service.requests.DeleteRequestByIdService;
 import com.project.spring.service.requests.NewRequestService;
 import com.project.spring.service.requests.RequestsService;
 
@@ -37,6 +39,8 @@ public class RequestsController {
 	private ApplyForRequestService applyForRequestService;
 	@Autowired
 	private NewRequestService newRequestService;
+	@Autowired
+	private DeleteRequestByIdService deleteRequestByIdService;
 
 	@PostMapping("/getAllRequestsWithClientInfo")
 	@ResponseBody
@@ -87,6 +91,12 @@ public class RequestsController {
 		return new ResponseEntity<>(newRequestService.createRequest(requests),
 				HttpStatus.CREATED);
 
+	}
+
+	@PostMapping("/deleteRequestById/{request_id}")
+	@ResponseBody
+	public GenericResponse deleteRequestById(@PathVariable int request_id) {
+		return deleteRequestByIdService.deleteRequestById(request_id);
 	}
 
 }

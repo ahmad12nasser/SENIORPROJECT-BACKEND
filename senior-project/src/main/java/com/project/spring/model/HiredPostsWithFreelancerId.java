@@ -8,10 +8,11 @@ public class HiredPostsWithFreelancerId {
 	private String clientFirstName;
 	private String clientLastName;
 	private byte[] clientProfileImage;
+	private String clientMobile;
 	private int id;
 	private String title;
-	private Date dateposted;
 	private Date deadline;
+	private Date datePosted;
 	private String categ_name;
 	private String location;
 	private String description;
@@ -54,12 +55,7 @@ public class HiredPostsWithFreelancerId {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getDateposted() {
-		return dateposted;
-	}
-	public void setDateposted(Date dateposted) {
-		this.dateposted = dateposted;
-	}
+
 	public Date getDeadline() {
 		return deadline;
 	}
@@ -101,6 +97,18 @@ public class HiredPostsWithFreelancerId {
 	}
 	public void setStatus(String status) {
 		Status = status;
+	}
+	public Date getDatePosted() {
+		return datePosted;
+	}
+	public void setDatePosted(Date datePosted) {
+		this.datePosted = datePosted;
+	}
+	public String getClientMobile() {
+		return clientMobile;
+	}
+	public void setClientMobile(String clientMobile) {
+		this.clientMobile = clientMobile;
 	}
 
 }

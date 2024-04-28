@@ -16,6 +16,9 @@ public class NeedClientAcceptByClientId {
 	private String status;
 	private int freelancer_id;
 	private String freelancerFirstName;
+	private String freelancerLastName;
+	private byte[] freelancerProfileImage;
+	private String freelancerMobile;
 	public int getId() {
 		return id;
 	}
@@ -100,6 +103,11 @@ public class NeedClientAcceptByClientId {
 	public void setFreelancerProfileImage(byte[] freelancerProfileImage) {
 		this.freelancerProfileImage = freelancerProfileImage;
 	}
-	private String freelancerLastName;
-	private byte[] freelancerProfileImage;
+	public String getFreelancerMobile() {
+		return freelancerMobile;
+	}
+	public void setFreelancerMobile(String freelancerMobile) {
+		this.freelancerMobile = freelancerMobile;
+	}
+
 }

@@ -26,13 +26,29 @@ public class EditClientInfoDaoImpl implements EditClientInfoDao {
 					client.getFirstName(), client.getLastName(),
 					client.getEmail(), client.getMobile(),
 					client.getDescription(), client.getAge(),
-					client.getLocation(), client.getProfileImg(),
-					client.getId());
+					client.getLocation(), client.getId());
 			return new GenericResponse(true, "Client Info Edited Successfully",
 					"200");
 		} catch (Exception e) {
 			log.error("Error in editClientInfo() " + e);
 			return new GenericResponse(false, "Error In Editing Client Info ",
+					"500");
+		}
+	}
+	@Override
+	public GenericResponse changeProfileImage(Client client) {
+		try {
+			log.debug(
+					"Successfully changing profile image for client by client_id");
+			jdbcTemplate.update(Queries.UPDATE_PROFILE_IMAGE_FOR_CLIENT,
+					client.getProfileImg(), client.getId());
+			return new GenericResponse(true,
+					"Successfully changing profile image for client by client_id.",
+					"200");
+		} catch (Exception e) {
+			log.error("Error in changeProfileImage() for client " + e);
+			return new GenericResponse(false,
+					"Error in changing the image for client in the internal server",
 					"500");
 		}
 	}

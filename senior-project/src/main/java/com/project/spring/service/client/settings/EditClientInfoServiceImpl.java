@@ -16,4 +16,8 @@ public class EditClientInfoServiceImpl implements EditClientInfoService {
 	public GenericResponse editClientInfoById(Client client) {
 		return editClientInfoDao.editClientInfo(client);
 	}
+	@Override
+	public GenericResponse changeProfileImage(Client client) {
+		return editClientInfoDao.changeProfileImage(client);
+	}
 }

@@ -8,6 +8,7 @@ public class HiredPosts {
 	private String freelancerFirstName;
 	private String freelancerLastName;
 	private byte[] freelancerProfileImage;
+	private String freelancerMobile;
 	private int id;
 	private String title;
 	private Date dateposted;
@@ -18,6 +19,7 @@ public class HiredPosts {
 	private byte[] image;
 	private BigDecimal price;
 	private String Status;
+	private int post_id;
 	public int getFreelancer_id() {
 		return freelancer_id;
 	}
@@ -101,6 +103,18 @@ public class HiredPosts {
 	}
 	public void setStatus(String status) {
 		Status = status;
+	}
+	public String getFreelancerMobile() {
+		return freelancerMobile;
+	}
+	public void setFreelancerMobile(String freelancerMobile) {
+		this.freelancerMobile = freelancerMobile;
+	}
+	public int getPost_id() {
+		return post_id;
+	}
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
 	}
 
 }

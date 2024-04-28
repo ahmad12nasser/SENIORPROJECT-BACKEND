@@ -30,14 +30,11 @@ public class EditFreelancerInfoController {
 			@RequestParam("mobile") String mobile,
 			@RequestParam("location") String location,
 			@RequestParam("professionCateg") String professionCateg,
-			@RequestParam("image") MultipartFile image,
 			@RequestParam("age") int age,
 			@RequestParam("description") String description)
 			throws IOException {
 		Freelancer freelancer = new Freelancer();
-		if (image != null && !image.isEmpty()) {
-			freelancer.setProfileImg(image.getBytes());
-		}
+
 		freelancer.setId(freelancer_id);
 		freelancer.setFirstName(firstName);
 		freelancer.setLastName(lastName);
@@ -49,5 +46,20 @@ public class EditFreelancerInfoController {
 		freelancer.setDescription(description);
 
 		return editFreelancerInfoService.editFreelancerInfoById(freelancer);
+	}
+
+	@PostMapping("/changeProfileImage")
+	@ResponseBody
+	public GenericResponse changeProfileImage(
+			@RequestParam("changedImage") MultipartFile changedImage,
+			@RequestParam("freelancer_id") int freelancer_id)
+			throws IOException {
+		Freelancer freelancer = new Freelancer();
+		if (changedImage != null && !changedImage.isEmpty()) {
+			freelancer.setProfileImg(changedImage.getBytes());
+		}
+		freelancer.setId(freelancer_id);
+
+		return editFreelancerInfoService.changeProfileImage(freelancer);
 	}
 }

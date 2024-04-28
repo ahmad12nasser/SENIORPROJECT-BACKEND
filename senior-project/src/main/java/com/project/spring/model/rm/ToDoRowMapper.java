@@ -23,14 +23,23 @@ public class ToDoRowMapper implements RowMapper<ToDo> {
 		toDo.setClient_first_name(rs.getString(++i));
 		toDo.setClient_last_name(rs.getString(++i));
 		toDo.setClient_profileImage(lobHandler.getBlobAsBytes(rs, ++i));
+		toDo.setClientMobile(rs.getString(++i));
+		toDo.setAppliedRequest_Id(rs.getInt(++i));
+		toDo.setRequest_id(rs.getInt(++i));
 		toDo.setRequest_title(rs.getString(++i));
 		toDo.setRequest_description(rs.getString(++i));
-		toDo.setRequest_deadLine(rs.getString(++i));
+		toDo.setRequest_deadLine(rs.getDate(++i));
+		toDo.setRequest_datePosted(rs.getDate(++i));
+		toDo.setRequest_categ_name(rs.getString(++i));
 		toDo.setRequest_location(rs.getString(++i));
 		toDo.setRequest_price(rs.getBigDecimal(++i));
+		toDo.setHiredPost_id(rs.getInt(++i));
+		toDo.setPost_id(rs.getInt(++i));
 		toDo.setPost_title(rs.getString(++i));
 		toDo.setPost_description(rs.getString(++i));
-		toDo.setPost_deadLine(rs.getString(++i));
+		toDo.setPost_deadLine(rs.getDate(++i));
+		toDo.setPost_datePosted(rs.getDate(++i));
+		toDo.setPost_categ_name(rs.getString(++i));
 		toDo.setPost_location(rs.getString(++i));
 		toDo.setPost_price(rs.getBigDecimal(++i));
 

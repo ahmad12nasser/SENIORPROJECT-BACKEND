@@ -19,8 +19,7 @@ public class GetPendingHiredPostsByClientIdRowMapper
 		HiredPosts h = new HiredPosts();
 
 		int i = 0;
-
-		h.setFreelancer_id(rs.getInt(++i));
+		h.setId(rs.getInt(++i));
 		h.setTitle(rs.getString(++i));
 		h.setDateposted(rs.getDate(++i));
 		h.setDeadline(rs.getDate(++i));
@@ -29,10 +28,12 @@ public class GetPendingHiredPostsByClientIdRowMapper
 		h.setDescription(rs.getString(++i));
 		h.setImage(lobHandler.getBlobAsBytes(rs, ++i));
 		h.setStatus(rs.getString(++i));
+		h.setPost_id(rs.getInt(++i));
 		h.setFreelancer_id(rs.getInt(++i));
 		h.setFreelancerFirstName(rs.getString(++i));
 		h.setFreelancerLastName(rs.getString(++i));
 		h.setFreelancerProfileImage(lobHandler.getBlobAsBytes(rs, ++i));
+		h.setFreelancerMobile(rs.getString(++i));
 
 		return h;
 	}

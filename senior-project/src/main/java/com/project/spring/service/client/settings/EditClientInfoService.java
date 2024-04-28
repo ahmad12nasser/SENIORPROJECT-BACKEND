@@ -8,4 +8,5 @@ import com.project.spring.model.Client;
 @Service
 public interface EditClientInfoService {
 	public GenericResponse editClientInfoById(Client client);
+	public GenericResponse changeProfileImage(Client client);
 }

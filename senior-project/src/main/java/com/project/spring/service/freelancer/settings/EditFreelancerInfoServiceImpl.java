@@ -18,4 +18,9 @@ public class EditFreelancerInfoServiceImpl
 	public GenericResponse editFreelancerInfoById(Freelancer freelancer) {
 		return editFreelancerInfoDao.editFreelancerInfoById(freelancer);
 	}
+
+	@Override
+	public GenericResponse changeProfileImage(Freelancer freelancer) {
+		return editFreelancerInfoDao.changeProfileImage(freelancer);
+	}
 }

@@ -30,6 +30,7 @@ public class PostWithFreelancerInfoRowMapper implements RowMapper<Posts> {
 		post.setFreelancerId(rs.getInt(++i));
 		post.setFreelancerFirstName(rs.getString(++i));
 		post.setFreelancerLastName(rs.getString(++i));
+		post.setFreelancerMobile(rs.getString(++i));
 		post.setFreelancerProfileImge(lobHandler.getBlobAsBytes(rs, ++i));
 
 		return post;

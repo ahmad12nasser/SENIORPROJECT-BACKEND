@@ -23,7 +23,7 @@ public class GetPendingAppliedRequestsByFreelancerIdRowMapper
 
 		h.setId(rs.getInt(++i));
 		h.setTitle(rs.getString(++i));
-		h.setDateposted(rs.getDate(++i));
+		h.setDatePosted(rs.getDate(++i));
 		h.setDeadline(rs.getDate(++i));
 		h.setCateg_name(rs.getString(++i));
 		h.setLocation(rs.getString(++i));
@@ -31,10 +31,12 @@ public class GetPendingAppliedRequestsByFreelancerIdRowMapper
 		h.setImage(lobHandler.getBlobAsBytes(rs, ++i));
 		h.setPrice(rs.getBigDecimal(++i));
 		h.setStatus(rs.getString(++i));
+		h.setRequest_id(rs.getInt(++i));
 		h.setClient_id(rs.getInt(++i));
 		h.setClientFirstName(rs.getString(++i));
 		h.setClientLastName(rs.getString(++i));
 		h.setClientProfileImage(lobHandler.getBlobAsBytes(rs, ++i));
+		h.setClientMobile(rs.getString(++i));
 
 		return h;
 	}

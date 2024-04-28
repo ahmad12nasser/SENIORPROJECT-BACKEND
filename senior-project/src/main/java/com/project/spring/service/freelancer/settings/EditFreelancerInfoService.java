@@ -8,4 +8,5 @@ import com.project.spring.model.Freelancer;
 @Service
 public interface EditFreelancerInfoService {
 	public GenericResponse editFreelancerInfoById(Freelancer freelancer);
+	public GenericResponse changeProfileImage(Freelancer freelancer);
 }

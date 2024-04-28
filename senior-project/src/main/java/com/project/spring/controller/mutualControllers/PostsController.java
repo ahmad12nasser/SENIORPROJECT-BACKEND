@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project.spring.dao.utils.GenericResponse;
 import com.project.spring.model.Posts;
+import com.project.spring.service.posts.DeletePostByIdService;
 import com.project.spring.service.posts.GetAllPostsService;
 import com.project.spring.service.posts.GetPostService;
 import com.project.spring.service.posts.NewPostService;
@@ -33,6 +34,8 @@ public class PostsController {
 	private GetPostService getPostService;
 	@Autowired
 	private GetAllPostsService getAllPostsService;
+	@Autowired
+	private DeletePostByIdService deletePostByIdService;
 
 	@PostMapping("/createPost")
 	@ResponseBody
@@ -73,5 +76,11 @@ public class PostsController {
 	public List<Posts> getAllPostsWithFreelancerInfo(HttpServletRequest req)
 			throws ParseException {
 		return getAllPostsService.getAllPostsWithFreelancerInfo();
+	}
+
+	@PostMapping("/deletePostById/{post_id}")
+	@ResponseBody
+	public GenericResponse deletePostById(@PathVariable int post_id) {
+		return deletePostByIdService.deletePostById(post_id);
 	}
 }

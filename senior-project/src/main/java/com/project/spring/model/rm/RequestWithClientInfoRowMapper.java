@@ -31,6 +31,7 @@ public class RequestWithClientInfoRowMapper implements RowMapper<Requests> {
 		request.setClientId(rs.getInt(++i));
 		request.setClientFirstName(rs.getString(++i));
 		request.setClientLastName(rs.getString(++i));
+		request.setClientMobile(rs.getString(++i));
 		request.setClientProfileImage(lobHandler.getBlobAsBytes(rs, ++i));
 
 		return request;

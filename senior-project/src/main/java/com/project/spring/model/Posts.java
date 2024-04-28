@@ -17,6 +17,7 @@ public class Posts {
 	private int freelancerId;
 	private String freelancerFirstName;
 	private String freelancerLastName;
+	private String freelancerMobile;
 	private byte[] freelancerProfileImge;
 
 	public String getStatus() {
@@ -102,5 +103,11 @@ public class Posts {
 	}
 	public void setFreelancerProfileImge(byte[] freelancerProfileImge) {
 		this.freelancerProfileImge = freelancerProfileImge;
+	}
+	public String getFreelancerMobile() {
+		return freelancerMobile;
+	}
+	public void setFreelancerMobile(String freelancerMobile) {
+		this.freelancerMobile = freelancerMobile;
 	}
 }
