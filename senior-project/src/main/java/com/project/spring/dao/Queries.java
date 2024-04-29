@@ -624,4 +624,25 @@ public class Queries {
 			+ "         applied_requests                     \n"
 			+ " where                                        \n"
 			+ "         request_id = ?                       \n";
+	public final static String INSERT_NEW_RECORDE_RATE_FOR_FREELANCER = "insert into ratings								\n"
+			+ "        (                                         \n"
+			+ "                freelancer_id,                    \n"
+			+ "                client_id    ,                    \n"
+			+ "                rate         ,                    \n"
+			+ "                feedback                          \n"
+			+ "        )                                         \n"
+			+ "values                                            \n"
+			+ "        (                                         \n"
+			+ "                ?,                                \n"
+			+ "                ?,                                \n"
+			+ "                ?,                                \n"
+			+ "                ?                                 \n"
+			+ "        )                                         \n";
+	public final static String GET_RATES_AND_COMMENTS_FOR_FREELANCER = "select									\n"
+			+ "        rate,                             \n"
+			+ "        feedback                          \n"
+			+ "from                                      \n"
+			+ "        ratings                           \n"
+			+ "where                                     \n"
+			+ "        freelancer_id = ?                 \n";
 }
