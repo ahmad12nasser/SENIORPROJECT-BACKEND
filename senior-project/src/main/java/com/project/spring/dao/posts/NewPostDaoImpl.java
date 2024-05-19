@@ -34,7 +34,6 @@ public class NewPostDaoImpl implements NewPostDao {
 							int i = 0;
 							ps.setLong(++i, posts.getFreelancerId());
 							ps.setString(++i, posts.getTitle());
-							ps.setDate(++i, posts.getDatePosted());
 							ps.setDate(++i, posts.getDeadline());
 							ps.setString(++i, posts.getLocation());
 							ps.setString(++i, posts.getCategName());

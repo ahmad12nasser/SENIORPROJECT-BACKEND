@@ -17,8 +17,8 @@ public class FinishTaskServiceImpl implements FinishTaskService {
 
 		f1 = finishTaskDao.insertIntoFinishTasksTable(task_id);
 		f2 = finishTaskDao.updateStatusInToDoTable("Finished" + "", task_id);
-		f3 = finishTaskDao.deleteAppliedRequestFromAppliedRequestsTable(
-				appliedRequest_id);
+		f3 = finishTaskDao
+				.deleteAppliedRequestFromAppliedRequestsTable(request_id);
 		f4 = finishTaskDao.deleteRequestFromRequestsTable(request_id);
 		return (f1 > 0 && f2 > 0 && f3 > 0 && f4 > 0) ? 1 : -1;
 	}
@@ -27,8 +27,8 @@ public class FinishTaskServiceImpl implements FinishTaskService {
 			int task_id) {
 		int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
 		f1 = finishTaskDao.insertIntoFinishTasksTable(task_id);
-		f2 = finishTaskDao.updateStatusInToDoTable("Finished" + "", task_id);
-		f3 = finishTaskDao.deleteHiredPostFromHiredPostTable(hiredPost_id);
+		f2 = finishTaskDao.updateStatusInToDoTable("Finished", task_id);
+		f3 = finishTaskDao.updateStatusInHiredPostTable("Finished", post_id);
 		f4 = finishTaskDao.setStatusInPostTableAsPending("Pending", post_id);
 		return (f1 > 0 && f2 > 0 && f3 > 0 && f4 > 0) ? 1 : -1;
 	}

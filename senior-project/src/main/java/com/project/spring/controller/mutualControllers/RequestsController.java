@@ -72,7 +72,6 @@ public class RequestsController {
 			@RequestParam("description") String description,
 			@RequestParam("categ_name") String categ_name,
 			@RequestParam("location") String location,
-			@RequestParam("datePosted") Date datePosted,
 			@RequestParam("deadline") Date deadline,
 			@RequestParam("price") BigDecimal price) throws IOException {
 
@@ -83,7 +82,6 @@ public class RequestsController {
 		requests.setCateg_name(categ_name);
 		requests.setClientId(client_id);
 		requests.setTitle(title);
-		requests.setDatePosted(datePosted);
 		requests.setDeadline(deadline);
 		requests.setDescription(description);
 		requests.setPrice(price);

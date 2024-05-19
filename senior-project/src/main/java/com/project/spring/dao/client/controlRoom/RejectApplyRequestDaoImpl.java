@@ -29,4 +29,19 @@ public class RejectApplyRequestDaoImpl implements RejectApplyRequestDao {
 			return -1;
 		}
 	}
+	@Override
+	public int setTheStatusOfRequestAsPending(String status, int request_id) {
+		try {
+			log.debug(
+					"Successfully setting the request's status as pending by the request_id");
+			return jdbcTemplate.update(
+					Queries.UPDATE_STATUS_AS_PENDING_IN_REQUESTS_TABLE, status,
+					request_id);
+		} catch (Exception e) {
+			log.error(
+					" error in setTheStatusOfRequestAsPending() in the rejecting of the applying on the request "
+							+ e);
+			return -1;
+		}
+	}
 }

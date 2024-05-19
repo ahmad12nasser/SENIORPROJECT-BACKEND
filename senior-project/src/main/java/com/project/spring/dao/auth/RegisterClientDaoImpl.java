@@ -25,10 +25,9 @@ public class RegisterClientDaoImpl implements RegisterClientDao {
 							client.getProfileImg(), client.getAge(),
 							client.getLocation(), client.getDescription(),
 							client.getMobile()});
-			return counter++;
+			return ++counter;
 		} catch (Exception e) {
 			log.error("Error in registerClient(): " + e);
-			e.printStackTrace();
 			return 0;
 		}
 	}

@@ -29,6 +29,7 @@ public class GetPendingHiredPostsByClientIdRowMapper
 		h.setImage(lobHandler.getBlobAsBytes(rs, ++i));
 		h.setStatus(rs.getString(++i));
 		h.setPost_id(rs.getInt(++i));
+		h.setPrice(rs.getBigDecimal(++i));
 		h.setFreelancer_id(rs.getInt(++i));
 		h.setFreelancerFirstName(rs.getString(++i));
 		h.setFreelancerLastName(rs.getString(++i));

@@ -4,5 +4,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface RejectApplyRequestService {
-	public int rejectApplyRequest(int applied_request_id);
+	public int rejectApplyRequest(int applied_request_id, int request_id);
 }

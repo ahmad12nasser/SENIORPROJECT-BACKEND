@@ -34,7 +34,7 @@ public class RegisterFreelancerAuthController {
 			@RequestParam(value = "phoneNumber", required = true) String phoneNumber,
 			@RequestParam(value = "portfolio", required = false) MultipartFile portfolio,
 			@RequestParam(value = "location", required = true) String location,
-			@RequestParam(value = "Description", required = false) String Description,
+			@RequestParam(value = "description", required = false) String Description,
 			@RequestParam(value = "professionName", required = true) String professionName,
 			@RequestParam(value = "age", required = false) int age)
 			throws IOException {

@@ -14,6 +14,7 @@ public class NeedClientAcceptByClientId {
 	private byte[] image;
 	private BigDecimal price;
 	private String status;
+	private int request_id;
 	private int freelancer_id;
 	private String freelancerFirstName;
 	private String freelancerLastName;
@@ -108,6 +109,12 @@ public class NeedClientAcceptByClientId {
 	}
 	public void setFreelancerMobile(String freelancerMobile) {
 		this.freelancerMobile = freelancerMobile;
+	}
+	public int getRequest_id() {
+		return request_id;
+	}
+	public void setRequest_id(int request_id) {
+		this.request_id = request_id;
 	}
 
 }

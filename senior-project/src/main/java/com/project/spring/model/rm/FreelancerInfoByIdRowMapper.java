@@ -5,26 +5,28 @@ import java.sql.SQLException;
 import java.util.Base64;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.lob.DefaultLobHandler;
+import org.springframework.jdbc.support.lob.LobHandler;
 
 import com.project.spring.model.Freelancer;
 
 public class FreelancerInfoByIdRowMapper implements RowMapper<Freelancer> {
-
+	private LobHandler lobHandler = new DefaultLobHandler();
 	@Override
 	public Freelancer mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Freelancer f = new Freelancer();
-		f.setId(rs.getInt("id"));
-		f.setFirstName(rs.getString("first_name"));
-		f.setLastName(rs.getString("last_name"));
-		f.setEmail(rs.getString("email"));
-		f.setPassword(rs.getString("password"));
-		f.setAge(rs.getInt("age"));
-		f.setProfessionCategName(rs.getString("categ_name"));
-		f.setMobile(rs.getString("mobile"));
-		f.setProfileImg(
-				Base64.getEncoder().encode(rs.getBytes("profile_image")));
-		f.setDescription(rs.getString("description"));
-		f.setLocation(rs.getString("location"));
+		int i = 0;
+		f.setId(rs.getInt(++i));
+		f.setFirstName(rs.getString(++i));
+		f.setLastName(rs.getString(++i));
+		f.setEmail(rs.getString(++i));
+		f.setPassword(rs.getString(++i));
+		f.setAge(rs.getInt(++i));
+		f.setProfessionCategName(rs.getString(++i));
+		f.setMobile(rs.getString(++i));
+		f.setLocation(rs.getString(++i));
+		f.setProfileImg(lobHandler.getBlobAsBytes(rs, ++i));
+		f.setDescription(rs.getString(++i));
 
 		return f;
 	}

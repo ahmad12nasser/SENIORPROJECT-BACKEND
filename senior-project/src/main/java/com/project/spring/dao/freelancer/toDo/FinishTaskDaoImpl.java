@@ -40,12 +40,13 @@ public class FinishTaskDaoImpl implements FinishTaskDao {
 		}
 	}
 	@Override
-	public int deleteHiredPostFromHiredPostTable(int hiredPost_id) {
+	public int updateStatusInHiredPostTable(String status, int post_id) {
 		try {
 			log.debug(
-					"Successfully delete the hiredPost from the hired_posts table");
-			return jdbcTemplate.update(Queries.DELETE_HIRED_POST_BY_POST_ID,
-					hiredPost_id);
+					"Successfully update the hiredPost from the hired_posts table");
+			return jdbcTemplate.update(
+					Queries.UPDATE_STATUS_IN_HIRED_POST_BY_POST_ID, status,
+					post_id);
 		} catch (Exception e) {
 			log.error("Error in deleteHiredPostFromHiredPostTable() " + e);
 			return -1;
@@ -77,14 +78,12 @@ public class FinishTaskDaoImpl implements FinishTaskDao {
 		}
 	}
 	@Override
-	public int deleteAppliedRequestFromAppliedRequestsTable(
-			int appliedRequest_id) {
+	public int deleteAppliedRequestFromAppliedRequestsTable(int request_id) {
 		try {
 			log.debug(
 					"Successfully delete the appliedRequest from the applied_requests table");
 			return jdbcTemplate.update(
-					Queries.DELETE_APPLIED_REQUEST_BY_REQUEST_ID,
-					appliedRequest_id);
+					Queries.DELETE_APPLIED_REQUEST_BY_REQUEST_ID, request_id);
 		} catch (Exception e) {
 			log.error("Error in deleteAppliedRequestFromAppliedRequestsTable() "
 					+ e);

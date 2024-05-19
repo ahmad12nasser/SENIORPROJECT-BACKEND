@@ -43,7 +43,6 @@ public class PostsController {
 			@RequestParam("freelancer_id") int freelancer_id,
 			@RequestParam("image") MultipartFile image,
 			@RequestParam("title") String title,
-			@RequestParam("dateposted") Date dateposted,
 			@RequestParam("deadline") Date deadline,
 			@RequestParam("location") String location,
 			@RequestParam("categ_name") String categ_name,
@@ -56,7 +55,6 @@ public class PostsController {
 		}
 		posts.setFreelancerId(freelancer_id);
 		posts.setTitle(title);
-		posts.setDatePosted(dateposted);
 		posts.setDeadline(deadline);
 		posts.setLocation(location);
 		posts.setCategName(categ_name);

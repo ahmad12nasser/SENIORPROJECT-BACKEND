@@ -34,7 +34,6 @@ public class NewRequestDaoImpl implements NewRequestDao {
 							ps.setLong(++i, requests.getClientId());
 							ps.setString(++i, requests.getCateg_name());
 							ps.setString(++i, requests.getDescription());
-							ps.setDate(++i, requests.getDatePosted());
 							ps.setDate(++i, requests.getDeadline());
 							ps.setString(++i, requests.getLocation());
 							ps.setString(++i, requests.getTitle());

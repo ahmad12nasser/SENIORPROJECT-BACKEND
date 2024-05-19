@@ -22,15 +22,17 @@ public class RegisterClientAuthController {
 
 	@RequestMapping(value = "/register/client", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelMap clientLogin(@RequestParam("firstName") String first_name,
-			@RequestParam("lastName") String last_name,
-			@RequestParam("email") String email,
-			@RequestParam("password") String password,
-			@RequestParam("confirmPassword") String confirmPassword,
-			@RequestParam("profile_image") MultipartFile profile_image,
-			@RequestParam("mobile") String mobile, @RequestParam("age") int age,
-			@RequestParam("location") String location,
-			@RequestParam("description") String description)
+	public ModelMap clientLogin(
+			@RequestParam(value = "firstName", required = true) String first_name,
+			@RequestParam(value = "lastName", required = true) String last_name,
+			@RequestParam(value = "email", required = true) String email,
+			@RequestParam(value = "password", required = true) String password,
+			@RequestParam(value = "confirmPassword", required = true) String confirmPassword,
+			@RequestParam(value = "profile_image", required = false) MultipartFile profile_image,
+			@RequestParam(value = "mobile", required = false) String mobile,
+			@RequestParam(value = "age", required = true) int age,
+			@RequestParam(value = "location", required = true) String location,
+			@RequestParam(value = "description", required = false) String description)
 			throws IOException {
 		ModelMap model = new ModelMap();
 		int counter = 0;
@@ -56,8 +58,7 @@ public class RegisterClientAuthController {
 				model.addAttribute("msg", "Incorrect Registration");
 			}
 		} else {
-			model.addAttribute("msg",
-					"Password and confirm password do not match.");
+			model.addAttribute("msg", "No Matching Passwords");
 		}
 
 		return model;

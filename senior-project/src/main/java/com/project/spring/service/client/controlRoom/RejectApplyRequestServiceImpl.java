@@ -13,9 +13,12 @@ public class RejectApplyRequestServiceImpl
 	private RejectApplyRequestDao applyRequestDao;
 
 	@Override
-	public int rejectApplyRequest(int applied_request_id) {
-		int f = 0;
-		f = applyRequestDao.rejectApplyRequest("Rejected", applied_request_id);
-		return (f > 0) ? 1 : -1;
+	public int rejectApplyRequest(int applied_request_id, int request_id) {
+		int f1 = 0, f2 = 0;
+		f1 = applyRequestDao.rejectApplyRequest("Rejected", applied_request_id);
+		f2 = applyRequestDao.setTheStatusOfRequestAsPending("Pending",
+				request_id);
+		return (f1 > 0 && f2 > 0) ? 1 : -1;
 	}
+
 }

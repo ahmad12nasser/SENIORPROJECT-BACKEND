@@ -29,6 +29,8 @@ public class GetPendingAppliedRequestsByclientIdRowMapper
 		m.setDescription(rs.getString(++i));
 		m.setImage(lobHandler.getBlobAsBytes(rs, ++i));
 		m.setStatus(rs.getString(++i));
+		m.setRequest_id(rs.getInt(++i));
+		m.setPrice(rs.getBigDecimal(++i));
 		m.setFreelancer_id(rs.getInt(++i));
 		m.setFreelancerFirstName(rs.getString(++i));
 		m.setFreelancerLastName(rs.getString(++i));
