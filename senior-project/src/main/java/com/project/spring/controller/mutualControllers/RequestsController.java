@@ -66,14 +66,15 @@ public class RequestsController {
 	@PostMapping("/createRequest")
 	@ResponseBody
 	public ResponseEntity<GenericResponse> createRequest(
-			@RequestParam("client_id") int client_id,
-			@RequestParam("image") MultipartFile imageFile,
-			@RequestParam("title") String title,
-			@RequestParam("description") String description,
-			@RequestParam("categ_name") String categ_name,
-			@RequestParam("location") String location,
-			@RequestParam("deadline") Date deadline,
-			@RequestParam("price") BigDecimal price) throws IOException {
+			@RequestParam(value = "client_id", required = true) int client_id,
+			@RequestParam(value = "image", required = false) MultipartFile imageFile,
+			@RequestParam(value = "title", required = true) String title,
+			@RequestParam(value = "description", required = true) String description,
+			@RequestParam(value = "categ_name", required = true) String categ_name,
+			@RequestParam(value = "location", required = true) String location,
+			@RequestParam(value = "deadline", required = true) Date deadline,
+			@RequestParam(value = "price", required = true) BigDecimal price)
+			throws IOException {
 
 		Requests requests = new Requests();
 		if (imageFile != null && !imageFile.isEmpty()) {

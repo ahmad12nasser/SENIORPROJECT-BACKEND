@@ -40,14 +40,15 @@ public class PostsController {
 	@PostMapping("/createPost")
 	@ResponseBody
 	public GenericResponse createPost(
-			@RequestParam("freelancer_id") int freelancer_id,
-			@RequestParam("image") MultipartFile image,
-			@RequestParam("title") String title,
-			@RequestParam("deadline") Date deadline,
-			@RequestParam("location") String location,
-			@RequestParam("categ_name") String categ_name,
-			@RequestParam("description") String description,
-			@RequestParam("price") BigDecimal price) throws IOException {
+			@RequestParam(value = "freelancer_id", required = true) int freelancer_id,
+			@RequestParam(value = "image", required = false) MultipartFile image,
+			@RequestParam(value = "title", required = true) String title,
+			@RequestParam(value = "deadline", required = true) Date deadline,
+			@RequestParam(value = "location", required = true) String location,
+			@RequestParam(value = "categ_name", required = true) String categ_name,
+			@RequestParam(value = "description", required = true) String description,
+			@RequestParam(value = "price", required = true) BigDecimal price)
+			throws IOException {
 
 		Posts posts = new Posts();
 		if (image != null && !image.isEmpty()) {
